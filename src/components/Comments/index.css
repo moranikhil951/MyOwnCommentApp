@@ -1,0 +1,134 @@
+/* Write your CSS here */
+
+.main-comment-Container {
+  min-height: 100vh;
+  background-color: white;
+  max-width: 11150px;
+  display: flex;
+
+  justify-content: center;
+}
+.Commments-Container {
+  display: flex;
+  max-width: 90%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mini-container {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.seperator {
+  border: 1px solid #dee0e3;
+  width: 85%;
+}
+.comments-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  text-align: right;
+}
+.dropping-comments {
+  width: 90%;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+}
+.ano-con {
+  background-color: white;
+  display: flex;
+  width: 100%;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.unordered-list-comments {
+  padding: 0;
+}
+.button {
+  background-color: #0284c7;
+  color: white;
+  border-radius: 5px;
+  border: 0;
+  height: 30px;
+  cursor: pointer;
+}
+.textarea {
+  border: 2px solid #cbd2d9;
+  color: #7e858e;
+  font-family: 'roboto';
+  margin-right: 80px;
+  width: 60%;
+}
+.searchInput {
+  border: 2px solid #cbd2d9;
+  margin-bottom: 10px;
+  height: 30px;
+  width: 60%;
+  color: #7e858e;
+  font-family: 'roboto';
+}
+.comment-img {
+  width: 100%;
+  margin-top: 90px;
+}
+.coloring-count {
+  background-color: #0284c7;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-right: 3px;
+}
+
+@media screen and (max-width: 767px) {
+  .mini-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+  }
+  .comment-img {
+    order: 0;
+  }
+  .flex {
+    order: 1;
+  }
+  .Commments-Container {
+    width: 60%;
+  }
+  .searchInput {
+    width: 90%;
+  }
+  .textarea {
+    width: 90%;
+  }
+  .ano-con {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .coloring-count {
+    background-color: #0284c7;
+    height: 15px;
+    width: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-right: 3px;
+    font-size: 9px;
+  }
+}
