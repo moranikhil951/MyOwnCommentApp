@@ -26,7 +26,6 @@ class Comments extends Component {
     searchInputName: '',
     addingComment: '',
     count: 0,
-    time: '',
   }
 
   AddComment = event => {
@@ -46,21 +45,33 @@ class Comments extends Component {
       addingComment,
       isLike: false,
       classNameColor: colorChangeBackground,
+      time: formatDistanceToNow(new Date()),
     }
 
     this.setState(prevState => ({
       commentsList: [...prevState.commentsList, newComment],
       searchInputName: '',
       addingComment: '',
-
-      time: formatDistanceToNow(new Date()),
     }))
 
-    if (searchInputName !== '') {
+    if (searchInputName !== '' && addingComment !== '') {
       this.setState(prevState => ({
         count: prevState.count + 1,
       }))
     }
+  }
+
+  renderingfunction = () => {
+    const {commentsList} = this.state
+    return commentsList.map(eachComment => (
+      <CommentItem
+        key={eachComment.id}
+        comment={eachComment}
+        clickedLiked={this.clickedLiked}
+        commentdeletingButton={this.commentdeletingButton}
+        colorChangeBackground={this.colorChangeBackground}
+      />
+    ))
   }
 
   typeComment = event => {
@@ -93,13 +104,7 @@ class Comments extends Component {
   }
 
   render() {
-    const {
-      commentsList,
-      searchInputName,
-      addingComment,
-      count,
-      time,
-    } = this.state
+    const {searchInputName, addingComment, count} = this.state
 
     if (count < 0) {
       this.setState({count: 0})
@@ -160,16 +165,7 @@ class Comments extends Component {
                 <p>Comments</p>
               </div>
               <ul className="unordered-list-comments">
-                {commentsList.map(eachComment => (
-                  <CommentItem
-                    comment={eachComment}
-                    key={eachComment.id}
-                    time={time}
-                    clickedLiked={this.clickedLiked}
-                    commentdeletingButton={this.commentdeletingButton}
-                    colorChangeBackground={this.colorChangeBackground}
-                  />
-                ))}
+                {this.renderingfunction()}
               </ul>
             </div>
           </div>
@@ -180,3 +176,5 @@ class Comments extends Component {
 }
 
 export default Comments
+
+    
