@@ -1,17 +1,24 @@
 // Write your code here
 
-import './index.css'
-
 const CommentItem = props => {
-  const {comment, time, clickedLiked, commentdeletingButton} = props
-  const {searchInputName, addingComment, id, isLike, classNameColor} = comment
+  const {comment} = props
+  const {
+    searchInputName,
+    addingComment,
+    time,
+    id,
+    isLike,
+    classNameColor,
+  } = comment
   const indexletter = searchInputName[0]
 
   const isLikedComment = () => {
+    const {clickedLiked} = props
     clickedLiked(id)
   }
 
   const deletComment = () => {
+    const {commentdeletingButton} = props
     commentdeletingButton(id)
   }
 
@@ -24,7 +31,7 @@ const CommentItem = props => {
 
   const likePara = isLike === true ? 'liked' : 'noLiked'
 
-  return searchInputName !== '' ? (
+  return searchInputName !== '' && addingComment !== '' ? (
     <li className="listed-comments" alt="load Page">
       <div className="container-for-display-comment">
         <div className={`changing-background ${classNameColor}`}>
@@ -40,19 +47,23 @@ const CommentItem = props => {
       </div>
       <div className="flex-like-delete">
         <div className="flex-liked-icon">
-          <button type="button" className="buttonClick">
-            <img
-              className="imageLiked"
-              alt="liked"
-              onClick={isLikedComment}
-              src={findingTrueValue}
-            />
+          <img className="imageLiked" alt="like" src={findingTrueValue} />
+
+          <button
+            type="button"
+            className={`buttonClick ${likePara}`}
+            onClick={isLikedComment}
+          >
+            Like
           </button>
-          <p className={likePara}>Like</p>
         </div>
-        <button type="button" className="buttonClick">
+        <button
+          type="button"
+          className="buttonClick"
+          data-testid="delete"
+          onClick={deletComment}
+        >
           <img
-            onClick={deletComment}
             className="deleteIcon"
             src="https://assets.ccbp.in/frontend/react-js/comments-app/delete-img.png"
             alt="delete"
@@ -67,3 +78,4 @@ const CommentItem = props => {
 }
 
 export default CommentItem
+
