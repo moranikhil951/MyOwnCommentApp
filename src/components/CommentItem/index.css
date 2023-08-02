@@ -79,13 +79,15 @@
   color: #0ea5e9;
   font-size: 13px;
   font-weight: 650;
-  margin-left: 7px;
+
+  cursor: pointer;
 }
 .noLiked {
   color: #94a3b8;
   font-size: 13px;
   font-weight: 650;
-  margin-left: 7px;
+
+  cursor: pointer;
 }
 .flex-liked-icon {
   display: flex;
@@ -112,6 +114,12 @@
   background-color: #ffffff;
   border: 0;
 }
+
+.buttonClick {
+  background-color: #ffffff;
+  border: 0;
+}
+
 
 .buttonClick {
   background-color: #ffffff;
